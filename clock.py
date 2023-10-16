@@ -3,15 +3,15 @@ class Clock:
         self.cycle_count = 0
         self.cycle_value = 0
 
-    def start_clock(self):
+    def startClock(self):
         self.cycle_value = 1
         self.cycle_count = 1
 
-    def update_cycle(self):
+    def updateCycle(self):
         self.cycle_value = 0
         self.cycle_value = 1
         self.cycle_count += 1
 
-    def stop_clock(self):
+    def stopClock(self):
         self.cycle_count = 0
         self.cycle_value = 0

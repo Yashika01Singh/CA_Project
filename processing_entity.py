@@ -1,5 +1,3 @@
-from port import Port
-
 
 class PE:
     def __init__(self):
