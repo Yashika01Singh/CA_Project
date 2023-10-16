@@ -32,16 +32,16 @@ class CrossBar:
     def sendFlit(self, master, flit):
         for i in self.currentConnected:
             if i[1] == master:
-                if i[3] == "NORTH":
+                if i[3] == "North":
                     pos = i[0].buffer_shuffle(i[3])
                     i[0].north_buffer[pos] = flit
-                if i[3] == "EAST":
+                if i[3] == "East":
                     pos = i[0].buffer_shuffle(i[3])
                     i[0].east_buffer[pos] = flit
-                if i[3] == "WEST":
+                if i[3] == "West":
                     pos = i[0].buffer_shuffle(i[3])
                     i[0].west_buffer[pos] = flit
-                if i[3] == "SOUTH":
+                if i[3] == "South":
                     pos = i[0].buffer_shuffle(i[3])
                     i[0].south_buffer[pos] = flit
 
@@ -55,16 +55,16 @@ class CrossBar:
             pass
         # if next is empty so data is shifted
         else:
-            if dir == "NORTH":
+            if dir == "North":
                 if next.isEmpty_north_buffer():
                     return True
-            if dir == "EAST":
+            if dir == "East":
                 if next.isEmpty_east_buffer():
                     return True
-            if dir == "WEST":
+            if dir == "West":
                 if next.isEmpty_west_buffer():
                     return True
-            if dir == "SOUTH":
+            if dir == "South":
                 if next.isEmpty_south_buffer():
                     return True
         return False
