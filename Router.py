@@ -74,6 +74,5 @@ class Router:
     #     self.buffer_delay = buffer
 
     def CalculateClockValues(self):
-        self.clockPeriod = 3 * \
-            max(self.sa_delay, self.xbar_delay, self.buffer_delay)
+        self.clockPeriod = max(self.sa_delay, self.xbar_delay, self.buffer_delay)
         self.clockFrequency = 1/self.clockPeriod
