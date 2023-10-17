@@ -32,5 +32,8 @@ class Mesh:
                         self.Mesh2D[index - 3], self.Mesh2D[index])
 
     def injectPacket(self, packet):
+        
         source = packet.getSource()
         self.Mesh2D[source].RecievePacket("Local", packet)
+        
+        return True

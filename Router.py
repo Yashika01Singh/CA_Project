@@ -1,5 +1,67 @@
 from Buffers import Buffers
+import logging
 
+logging.basicConfig(filename="Logfile.log", filemode='a')
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+class Port:
+
+    def __init__(self):
+        self.NorthInput = False
+        self.NorthOutput = False
+        self.SouthInput = False
+        self.SouthOutput = False
+        self.EastInput = False
+        self.EastOutput = False
+        self.WestInput = False
+        self.WestOutput = False
+        self.Local = False
+
+    def make_connection(self, DirectionFrom, DirectionTo):
+        if (DirectionFrom == "North"):
+            self.NorthInput = True
+        elif (DirectionFrom == "South"):
+            self.SouthInput = True
+        elif (DirectionFrom == "East"):
+            self.EastInput = True
+        elif (DirectionFrom == "West"):
+            self.WestInput = True
+        elif (DirectionFrom == "Local"):
+            self.Local = True
+
+        if (DirectionTo == "North"):
+            self.NorthOutput = True
+        elif (DirectionTo == "South"):
+            self.SouthOutput = True
+        elif (DirectionTo == "East"):
+            self.EastOutput = True
+        elif (DirectionTo == "West"):
+            self.WestOutput = True
+        elif (DirectionTo == "Local"):
+            self.Local = True
+
+    def break_connection(self, DirectionFrom, DirectionTo):
+        if (DirectionFrom == "North"):
+            self.NorthInput = False
+        elif (DirectionFrom == "South"):
+            self.SouthInput = False
+        elif (DirectionFrom == "East"):
+            self.EastInput = False
+        elif (DirectionFrom == "West"):
+            self.WestInput = False
+        elif (DirectionTo == "Local"):
+            self.Local = False
+
+        if (DirectionTo == "North"):
+            self.NorthOutput = False
+        elif (DirectionTo == "South"):
+            self.SouthOutput = False
+        elif (DirectionTo == "East"):
+            self.EastOutput = False
+        elif (DirectionTo == "West"):
+            self.WestOutput = False
+        elif (DirectionTo == "Local"):
+            self.Local = False
 
 class Router:
 
@@ -11,6 +73,7 @@ class Router:
         self.WestConnection = None
         self.LocalConnection = None
         self.buffers = Buffers()
+        self.ports = Port()
 
         self.sa_delay = sa_delay
         self.xbar_delay = xbar_delay
@@ -49,10 +112,28 @@ class Router:
     def UpConnect(UpRouter, DownRouter):
         UpRouter.Add_Connection("South", DownRouter)
         DownRouter.Add_Connection("North", UpRouter)
-    def CrossBar(self,DirectionFrom , DirectionTo ,packet):
-        
-        self.NextRouter.RecievePacket(NextDirection, packet)
-        pass
+
+
+    def CrossBar(self, DirectionFrom, DirectionTo ,packet):
+
+        if (DirectionTo == "East"):
+            NextRouter = self.EastConnection
+            NextDirection = "West"
+        elif (DirectionTo == "West"):
+            NextRouter = self.WestConnection
+            NextDirection = "East"
+        elif (DirectionTo == "North"):
+            NextRouter = self.NorthConnection
+            NextDirection = "South"
+        elif (DirectionTo =="South"):
+            NextRouter = self.SouthConnection
+            NextDirection = "North"
+
+        self.ports.make_connection(DirectionFrom, DirectionTo)
+        NextRouter.RecievePacket(NextDirection, packet)
+
+        self.ports.break_connection(DirectionFrom, DirectionFrom)
+
     def SwitchAllocator(self, Direction):
         packet = self.buffers.remove(Direction)
         current_x, current_y = self.name%3 , self.name//3
@@ -70,7 +151,7 @@ class Router:
                 NextDirection = "North"
 
 
-        self.CrossBar ( self , Direction , NextDirection , packet)
+        self.CrossBar ( Direction , NextDirection , packet)
         # Figure out which connection to send to
         # store that connection in Next Connection
         # Use XBar to do that
@@ -81,9 +162,9 @@ class Router:
         # call the switch allocator to see which connection to be used
         # use the crossbar to send to the output port in that direction
         # packet recieved at input of next
-        if (packet.getDestinantion() == self.name):
-            # log the packet
-            pass
+        logger.info('Router: ' + str(self.name) + ' Flit received: ' + packet.getflit())
+        if (packet.getDestination() == self.name):
+            return True
         self.buffers.insert(Direction, packet)
         self.SwitchAllocator(Direction)
 
@@ -95,3 +176,4 @@ class Router:
     def CalculateClockValues(self):
         self.clockPeriod = max(self.sa_delay, self.xbar_delay, self.buffer_delay)
         self.clockFrequency = 1/self.clockPeriod
+

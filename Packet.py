@@ -2,9 +2,9 @@ class Packet:
      def __init__(self,input):
           #create the required flit
           input = input.split(" ")
-          self.source = input[1]
-          self.destination = input[2]
-          self.clockcycle = input[0]
+          self.source = int(input[1])
+          self.destination = int(input[2])
+          self.clockcycle = int(input[0])
           self.flitData = input[3]
      
      """def getflits(self):
@@ -20,6 +20,8 @@ class Packet:
      
      def getClockcycle(self):
          return self.clockcycle
+     def getflit(self):
+         return self.flitData
      
      
 
