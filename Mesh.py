@@ -16,7 +16,7 @@ class Mesh:
             xbar_delay = float(RouterDelay[1])
             buffer_delay = float(RouterDelay[2])
             self.Mesh2D.append(
-                Router(str(i), sa_delay, xbar_delay, buffer_delay))
+                Router(i1, sa_delay, xbar_delay, buffer_delay))
             Router.CalculateClockValues(self.Mesh2D[i1])
             i1 = i1+1
 

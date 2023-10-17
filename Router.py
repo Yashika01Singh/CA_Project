@@ -49,13 +49,32 @@ class Router:
     def UpConnect(UpRouter, DownRouter):
         UpRouter.Add_Connection("South", DownRouter)
         DownRouter.Add_Connection("North", UpRouter)
-
+    def CrossBar(self,DirectionFrom , DirectionTo ,packet):
+        
+        self.NextRouter.RecievePacket(NextDirection, packet)
+        pass
     def SwitchAllocator(self, Direction):
         packet = self.buffers.remove(Direction)
+        current_x, current_y = self.name%3 , self.name//3
+        Destination = packet.getDestination()
+        destination_x, destination_y = Destination%3 , Destination//3
+        NextDirection = ""
+        if(current_x<destination_x):
+            NextDirection = "East"
+        elif (current_x>destination_x):
+            NextDirection = "West"
+        else :
+            if(current_y < destination_y):
+                NextDirection = "South"
+            else:
+                NextDirection = "North"
+
+
+        self.CrossBar ( self , Direction , NextDirection , packet)
         # Figure out which connection to send to
         # store that connection in Next Connection
         # Use XBar to do that
-        self.NextConnection.RecievePacket(NextDirection, packet)
+        
 
     def RecievePacket(self, Direction, packet):
         # the packet is stored in PE buffer
