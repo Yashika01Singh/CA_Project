@@ -30,7 +30,7 @@ def main():
         
         #do the time stuff here
         success = myMesh.injectPacket(input[i],clk)
-        clk.update()
+        
     
 
 if __name__ == "__main__":

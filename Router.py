@@ -141,6 +141,7 @@ class Router:
         clk.update()
         packet_thread.start()
         self.ports.break_connection(DirectionFrom, DirectionFrom)
+        return
 
     def SwitchAllocator(self, Direction,clk):
         packet = self.buffers.remove(Direction)
