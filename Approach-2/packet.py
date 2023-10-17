@@ -9,13 +9,9 @@ class Packet:
         self.PacketNum = PacketNum
 
     def header(self):
-        data = str(bin(self.PacketNum)[2:])
-        length = 28 - len(data)
         return "0" * 11 + self.dict[self.Source] + "0" * 11 + self.dict[self.Destination] + "00"
 
     def tail(self):
-        data = str(bin(self.PacketNum)[2:])
-        length = 28 - len(data)
         return self.Payload[64:96]
 
     def body(self):

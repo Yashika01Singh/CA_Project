@@ -1,7 +1,6 @@
 
 class Port:
     def __init__(self):
-        self.unused_port = 1
         self.input_edge = None
         self.output_edge = None
 

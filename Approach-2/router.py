@@ -8,6 +8,7 @@ class Router:
 
     def __init__(self, X, Y):
 
+        self.send = None
         self.neighbour_dict = []
         self.XCoordinate = X
         self.YCoordinate = Y
@@ -72,7 +73,6 @@ class Router:
             elif Yoffset == 0 and Xoffset > 0:
                 return self.XCoordinate + 1, self.YCoordinate
 
-
     def isEmpty_north_buffer(self):
         for i in self.north_buffer:
             if i == '0' * 32:
@@ -102,37 +102,6 @@ class Router:
             if i == '0' * 32:
                 return True
         return False
-
-
-    def shiftNBuffer(self):
-        for i in range(0, 3):
-            self.north_buffer[i] = self.north_buffer[i + 1]
-
-        self.north_buffer[3] = "0" * 32
-
-    def shiftSBuffer(self):
-        for i in range(0, 3):
-            self.south_buffer[i] = self.south_buffer[i + 1]
-
-        self.south_buffer[3] = "0" * 32
-
-    def shiftEBuffer(self):
-        for i in range(0, 3):
-            self.east_buffer[i] = self.east_buffer[i + 1]
-
-        self.east_buffer[3] = "0" * 32
-
-    def shiftWBuffer(self):
-        for i in range(0, 3):
-            self.west_buffer[i] = self.west_buffer[i + 1]
-
-        self.west_buffer[3] = "0" * 32
-
-    def shiftPEBuffer(self):
-        for i in range(0, 3):
-            self.pe_buffer[i] = self.pe_buffer[i + 1]
-
-        self.pe_buffer[3] = "0" * 32
 
     def buffer_shuffle(self, direction):
         if direction == "North":

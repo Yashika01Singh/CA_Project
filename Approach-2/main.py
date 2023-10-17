@@ -7,17 +7,19 @@ from clock import Clock
 from mesh import Mesh
 from packet import Packet
 
-def sig_handler(sig, frame):
-    print('\nEnd of Simulation')
-    sys.exit(0)
-
-signal.signal(signal.SIGINT, sig_handler)
-
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--traffic", help="Traffic File as Input")
 parser.add_argument("-d", "--delay", help="Input Delay File")
 parser.add_argument("-r", "--routing", help="Routing Algorithm you want to use")
 args = parser.parse_args()
+
+
+def sig_handler(sig, frame):
+    print('\nEnd of Simulation')
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, sig_handler)
 
 logging.basicConfig(filename="Log.log", filemode='w')
 logger = logging.getLogger()
@@ -29,7 +31,7 @@ counter = 0
 
 for line in fileinput.input(files=args.traffic):
     elements = line.strip().split(' ')
-    if (len(elements) == 1 and elements[0] == '\n'):
+    if len(elements) == 1 and elements[0] == '\n':
         continue
     for i in range(len(elements)):
         j = elements[i]
@@ -40,7 +42,6 @@ for line in fileinput.input(files=args.traffic):
             elements[i] = j
     if len(elements[-1]) == 96:
         input_data.append(elements)
-
 
 for line in input_data:
     inject_cycle, source, dest, payload = line[:4]
@@ -68,7 +69,7 @@ clk = Clock(delays)
 clk.startClock()
 Mesh3D = Mesh()
 
-#Main simulation loop
+# Main simulation loop
 current_input_index = 0
 open('Log.log', 'w').close()
 flit_received = 0  # Flag to track flit reception
@@ -81,7 +82,8 @@ while True:
         while flit_index < max_flit:
             flit_received = 0  # Reset the flit reception flag
             if processed[current_input_index][flit_index] != "0" * 32:
-                flit_received = Mesh3D.injectPacket(processed[current_input_index][flit_index], flit_index - 3, processed[current_input_index][1])
+                flit_received = Mesh3D.injectPacket(processed[current_input_index][flit_index], flit_index - 3,
+                                                    processed[current_input_index][1])
                 if flit_received == 1:
                     log_message = (
                         f'Router: {processed[current_input_index][1]} Received from PE at clock cycle: {clk.cycle_count} '
@@ -93,7 +95,7 @@ while True:
                     break
                 else:
                     break
-            elif processed[current_input_index][max_flit-1] == "0" * 32:
+            elif processed[current_input_index][max_flit - 1] == "0" * 32:
                 current_input_index += 1
                 break
             flit_index += 1

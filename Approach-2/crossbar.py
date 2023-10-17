@@ -1,4 +1,3 @@
-
 class CrossBar:
     """
        0,0 : A
@@ -10,27 +9,17 @@ class CrossBar:
        0,2 : G
        1,2 : H
        2,2 : I
-       """
+    """
 
     def __init__(self):
-        # self.northI = northI
-        # self.southI = southI
-        # self.westI = westI
-        # self.eastI = eastI
-        # self.northO = northO
-        # self.southO = southO
-        # self.westO = westO
-        # self.eastO = eastO
-        self.currentConnected = []
+        self.currConnected = []
 
     def makeConnection(self, dest_router, master, slave, direction):
-        print("Making connection")
-        # print(dest_router.XCoordinate,dest_router.YCoordinate)
-        if self.moveData(dest_router, direction):
-            self.currentConnected.append([dest_router, master, slave, direction])
+        if self.checkNext(dest_router, direction):
+            self.currConnected.append([dest_router, master, slave, direction])
 
     def sendFlit(self, master, flit):
-        for i in self.currentConnected:
+        for i in self.currConnected:
             if i[1] == master:
                 if i[3] == "North":
                     pos = i[0].buffer_shuffle(i[3])
@@ -45,15 +34,9 @@ class CrossBar:
                     pos = i[0].buffer_shuffle(i[3])
                     i[0].south_buffer[pos] = flit
 
-    def deleteConnection(self, master):
-        for i in self.currentConnected:
-            if i[1] == master:
-                self.currentConnected.remove(i)
-
     def checkNext(self, next, dir):
-        if next == None:
+        if next is None:
             pass
-        # if next is empty so data is shifted
         else:
             if dir == "North":
                 if next.isEmpty_north_buffer():

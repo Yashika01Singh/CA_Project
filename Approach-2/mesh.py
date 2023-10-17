@@ -44,6 +44,9 @@ class Mesh:
                              self.router_f, self.router_g, self.router_h, self.router_i]
 
         self.definePorts()
+        self.sources_dict = {'A': self.router_a, 'B': self.router_b, 'C': self.router_c,
+                             'D': self.router_d, 'E': self.router_e, 'F': self.router_f,
+                             'G': self.router_g, 'H': self.router_h, 'I': self.router_i}
 
     def definePorts(self):
         for router in self.routers_list:
@@ -70,34 +73,11 @@ class Mesh:
                 router.ports_list.append(port_xy)
 
     def update(self, clock, flag):
-        a = self.router_a.update(clock, flag)
-        b = self.router_b.update(clock, flag)
-        c = self.router_c.update(clock, flag)
-        d = self.router_d.update(clock, flag)
-        e = self.router_e.update(clock, flag)
-        f = self.router_f.update(clock, flag)
-        g = self.router_g.update(clock, flag)
-        h = self.router_h.update(clock, flag)
-        i = self.router_i.update(clock, flag)
-        return a + b + c + d + e + f + g + h + i
+        total = 0
+        for key in self.sources_dict.keys():
+            total += self.sources_dict[key].update(clock, flag)
+        return total
 
     def injectPacket(self, flit, count, source):
-        if source == 'A':
-            self.router_a.pe_buffer[count] = flit
-        elif source == 'B':
-            self.router_b.pe_buffer[count] = flit
-        elif source == 'C':
-            self.router_c.pe_buffer[count] = flit
-        elif source == 'D':
-            self.router_d.pe_buffer[count] = flit
-        elif source == 'E':
-            self.router_e.pe_buffer[count] = flit
-        elif source == 'F':
-            self.router_f.pe_buffer[count] = flit
-        elif source == 'G':
-            self.router_g.pe_buffer[count] = flit
-        elif source == 'H':
-            self.router_h.pe_buffer[count] = flit
-        elif source == 'I':
-            self.router_i.pe_buffer[count] = flit
+        self.sources_dict[source].pe_buffer[count] = flit
         return 1
