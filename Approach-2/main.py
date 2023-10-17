@@ -1,89 +1,89 @@
-import fileinput
-from clock import Clock
-from packet import Packet
-from mesh import Mesh
-import logging
 import argparse
-
+import fileinput
+import logging
 import signal
 import sys
+from clock import Clock
+from mesh import Mesh
+from packet import Packet
 
-
-def signal_handler(sig, frame):
-    print('\nSimulation Ended')
+def sig_handler(sig, frame):
+    print('\nEnd of Simulation')
     sys.exit(0)
 
-
-signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGINT, sig_handler)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-t", "--traffic", help="Input Traffic File")
-parser.add_argument("-r", "--routing", help="Routing Algorithm to use")
-
+parser.add_argument("-t", "--traffic", help="Traffic File as Input")
+parser.add_argument("-r", "--routing", help="Routing Algorithm you want to use")
 args = parser.parse_args()
 
-logging.basicConfig(filename="Logfile.log", filemode='w')
+logging.basicConfig(filename="Log.log", filemode='w')
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
-input = []
+input_data = []
+processed = []
+counter = 0
 
-for line in fileinput.input(files="input.txt"):
-    A = line.split(' ')
-    if (len(A) == 1) and (A[0] == '\n'):
+for line in fileinput.input(files="traffic.txt"):
+    elements = line.strip().split(' ')
+    if (len(elements) == 1 and elements[0] == '\n'):
         continue
-    for i in range(len(A)):
-        j = A[i]
+    for i in range(len(elements)):
+        j = elements[i]
         if j == '\n' or j == '\r':
-            A.remove(j)
+            elements.remove(j)
         elif '\r' in j or '\n' in j:
             j = j[0:len(j) - 1]
-            A[i] = j
-    print(A)
-    if len(A[-1]) == 96:
-        input.append(A)
+            elements[i] = j
+    if len(elements[-1]) == 96:
+        input_data.append(elements)
 
-processed_input = []
-count = 0
-for line in input:
-    # print(count)
-    injectCycle = line[0]
-    source = line[1]
-    dest = line[2]
-    payload = line[3]
-    packet = Packet(payload, source, dest, injectCycle, count)
-    input_line = [injectCycle, source, dest] + packet.flit()
-    processed_input.append(input_line)
-    count += 1
+
+for line in input_data:
+    inject_cycle, source, dest, payload = line[:4]
+    packet = Packet(payload, source, dest, inject_cycle, counter)
+    curr_input = [inject_cycle, source, dest] 
+    curr_input = curr_input + packet.flit()
+    processed.append(curr_input)
+    counter += 1
 
 clk = Clock()
 clk.startClock()
-Mesh2D = Mesh()
-i = 0
-open('Logfile.log', 'w').close()
-addition_flag = 0
-# assuming in order traffic only
-print("Simulation Started. Press Ctrl+C to stop")
+Mesh3D = Mesh()
+
+#Main simulation loop
+current_input_index = 0
+open('Log.log', 'w').close()
+flit_received = 0  # Flag to track flit reception
+
+print("Start of Simulation")
 while True:
-    if i < len(processed_input) and int(processed_input[i][0]) <= clk.cycle_count:
-        for j in range(3, 6):
-            flag = 0
-            if processed_input[i][j] != "0" * 32:
-                flag = Mesh2D.injectPacket(processed_input[i][j], j - 3, processed_input[i][1])
-                if flag == 1:
-                    logger.info('Router: ' + processed_input[i][1] + " Received from PE at clock cycle: " + str(
-                        clk.cycle_count) + ' Flit received: ' + processed_input[i][j])
-                    processed_input[i][j] = "0" * 32
-                    addition_flag = 1
+    if current_input_index < len(processed) and int(processed[current_input_index][0]) <= clk.cycle_count:
+        flit_index = 3
+        while flit_index < 6:
+            flit_received = 0  # Reset the flit reception flag
+            if processed[current_input_index][flit_index] != "0" * 32:
+                flit_received = Mesh3D.injectPacket(processed[current_input_index][flit_index], flit_index - 3, processed[current_input_index][1])
+                if flit_received == 1:
+                    log_message = (
+                        f'Router: {processed[current_input_index][1]} Received from PE at clock cycle: {clk.cycle_count} '
+                        f'Flit received: {processed[current_input_index][flit_index]}'
+                    )
+                    logger.info(log_message)
+                    processed[current_input_index][flit_index] = "0" * 32
+                    flit_received = 1
                     break
                 else:
                     break
-            elif processed_input[i][5] == "0" * 32:
-                i += 1
+            elif processed[current_input_index][5] == "0" * 32:
+                current_input_index += 1
                 break
-    # else:
-    #     print('hello')
-    value = Mesh2D.update(clk.cycle_count, 'XY')
+            flit_index += 1
+    
+    value = Mesh3D.update(clk.cycle_count, 'XY')
     if value >= 0:
         clk.updateCycle()
+
 
