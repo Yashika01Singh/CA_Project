@@ -18,6 +18,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--traffic", help="Input Traffic File")
+parser.add_argument("-d", "--delay", help="Input Delay File")
 parser.add_argument("-r", "--routing", help="Routing Algorithm to use")
 
 args = parser.parse_args()
@@ -28,7 +29,7 @@ logger.setLevel(logging.DEBUG)
 
 input = []
 
-for line in fileinput.input(files="input.txt"):
+for line in fileinput.input(files=args.traffic):
     A = line.split(' ')
     if (len(A) == 1) and (A[0] == '\n'):
         continue
@@ -43,6 +44,23 @@ for line in fileinput.input(files="input.txt"):
     if len(A[-1]) == 96:
         input.append(A)
 
+delays = []
+for line in fileinput.input(files=args.delay):
+    A = line.split(' ')
+    print(A)
+    new_value = []
+    for value in A:
+        if '\r' in value or '\n' in value:
+            value = float(value[0:len(value) - 1])
+            new_value.append(value)
+        else:
+            value = float(value)
+            new_value.append(value)
+    delays.append(new_value)
+
+
+# print(delays)
+
 processed_input = []
 count = 0
 for line in input:
@@ -56,7 +74,7 @@ for line in input:
     processed_input.append(input_line)
     count += 1
 
-clk = Clock()
+clk = Clock(delays)
 clk.startClock()
 Mesh2D = Mesh()
 i = 0
@@ -81,9 +99,8 @@ while True:
             elif processed_input[i][5] == "0" * 32:
                 i += 1
                 break
-    # else:
-    #     print('hello')
-    value = Mesh2D.update(clk.cycle_count, 'XY')
+
+    value = Mesh2D.update(clk, args.routing)
     if value >= 0:
         clk.updateCycle()
 

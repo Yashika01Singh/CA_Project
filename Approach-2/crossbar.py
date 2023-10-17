@@ -2,13 +2,13 @@
 class CrossBar:
     """
        0,0 : A
-       0,1 : B
-       0,2 : C
-       1,0 : D
+       1,0 : B
+       2,0 : C
+       0,1 : D
        1,1 : E
-       1,2 : F
-       2,0 : G
-       2,1 : H
+       2,1 : F
+       0,2 : G
+       1,2 : H
        2,2 : I
        """
 
@@ -25,7 +25,7 @@ class CrossBar:
 
     def makeConnection(self, dest_router, master, slave, direction):
         print("Making connection")
-        # print(dest_router.XCurrent,dest_router.YCurrent)
+        # print(dest_router.XCoordinate,dest_router.YCoordinate)
         if self.moveData(dest_router, direction):
             self.currentConnected.append([dest_router, master, slave, direction])
 

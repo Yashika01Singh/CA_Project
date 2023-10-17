@@ -11,13 +11,13 @@ from port import Port
 class Mesh:
     def __init__(self):
         self.router_a = Router(0, 0)
-        self.router_b = Router(0, 1)
-        self.router_c = Router(0, 2)
-        self.router_d = Router(1, 0)
+        self.router_b = Router(1, 0)
+        self.router_c = Router(2, 0)
+        self.router_d = Router(0, 1)
         self.router_e = Router(1, 1)
-        self.router_f = Router(1, 2)
-        self.router_g = Router(2, 0)
-        self.router_h = Router(2, 1)
+        self.router_f = Router(2, 1)
+        self.router_g = Router(0, 2)
+        self.router_h = Router(1, 2)
         self.router_i = Router(2, 2)
 
         self.router_a.neighbour_dict = [{self.router_b: "East"}, {self.router_d: "South"}]
@@ -36,7 +36,7 @@ class Mesh:
         self.router_g.neighbour_dict = [{self.router_d: "North"}, {self.router_h: "East"}]
         self.router_g.neighbour_list = [self.router_h, self.router_d]
         self.router_h.neighbour_dict = [{self.router_i: "East"}, {self.router_g: "West"}, {self.router_e: "North"}]
-        self.router_f.neighbour_list = [self.router_i, self.router_g, self.router_e]
+        self.router_h.neighbour_list = [self.router_i, self.router_g, self.router_e]
         self.router_i.neighbour_dict = [{self.router_f: "North"}, {self.router_h: "West"}]
         self.router_i.neighbour_list = [self.router_f, self.router_h]
 
@@ -68,35 +68,6 @@ class Mesh:
                     dest_router.north_output_port = port_xy
                 port_xy.setPort(source_router, dest_router)
                 router.ports_list.append(port_xy)
-
-    # def buff_check(self):
-    #     if(self.router_a.pe_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_a.south_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_a.east_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_b.pe_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_b.west_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_b.south_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_c.pe_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_c.west_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_c.north_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_d.pe_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_d.north_buffer[0]!=["0"*34]):
-    #         dummy()
-    #     if(self.router_d.east_buffer[0]!=["0"*34]):
-    #         dummy()
-
-    # def dummy(self):
-    #     return "Actions bhay router wale"
 
     def update(self, clock, flag):
         a = self.router_a.update(clock, flag)
