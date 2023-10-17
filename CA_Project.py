@@ -9,6 +9,7 @@
 from Router import Router
 from Packet import Packet
 from Mesh import Mesh
+from Clock import Clock
     
 def main():
     
@@ -23,19 +24,13 @@ def main():
             input.append(packet)
     #possible sort the input so that clock cycles are ..
     myMesh = Mesh()
-    #start the clock
-
+    clk = Clock()
+    
     for i in range(len(input)):
         
         #do the time stuff here
-        success = myMesh.injectPacket(input[i])
-
-        if(success):
-            #log the packet
-            pass
-        else:
-            #handle exception
-            pass
+        success = myMesh.injectPacket(input[i],clk)
+        clk.update()
     
 
 if __name__ == "__main__":

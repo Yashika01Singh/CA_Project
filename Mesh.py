@@ -1,5 +1,5 @@
 from Router import Router
-
+from Clock import Clock
 
 class Mesh:
     def __init__(self):
@@ -31,9 +31,9 @@ class Mesh:
                     Router.UpConnect(
                         self.Mesh2D[index - 3], self.Mesh2D[index])
 
-    def injectPacket(self, packet):
+    def injectPacket(self, packet , clk ):
         
         source = packet.getSource()
-        self.Mesh2D[source].RecievePacket("Local", packet)
+        self.Mesh2D[source].RecievePacket("Local", packet , clk)
         
         return True

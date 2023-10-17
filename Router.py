@@ -1,9 +1,10 @@
 from Buffers import Buffers
 import logging
-
+from Clock import Clock
 logging.basicConfig(filename="Logfile.log", filemode='a')
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
+import threading
 class Port:
 
     def __init__(self):
@@ -63,6 +64,8 @@ class Port:
         elif (DirectionTo == "Local"):
             self.Local = False
 
+    
+
 class Router:
 
     def __init__(self, name, sa_delay, xbar_delay, buffer_delay):
@@ -113,8 +116,10 @@ class Router:
         UpRouter.Add_Connection("South", DownRouter)
         DownRouter.Add_Connection("North", UpRouter)
 
+    def send_packet_in_thread(self,NextRouter, NextDirection, packet, clk):
+        NextRouter.RecievePacket(NextDirection, packet, clk)
 
-    def CrossBar(self, DirectionFrom, DirectionTo ,packet):
+    def CrossBar(self, DirectionFrom, DirectionTo ,packet,clk):
 
         if (DirectionTo == "East"):
             NextRouter = self.EastConnection
@@ -130,11 +135,14 @@ class Router:
             NextDirection = "North"
 
         self.ports.make_connection(DirectionFrom, DirectionTo)
-        NextRouter.RecievePacket(NextDirection, packet)
-
+        
+        
+        packet_thread = threading.Thread(target=self.send_packet_in_thread, args=(NextRouter,NextDirection, packet, clk))
+        clk.update()
+        packet_thread.start()
         self.ports.break_connection(DirectionFrom, DirectionFrom)
 
-    def SwitchAllocator(self, Direction):
+    def SwitchAllocator(self, Direction,clk):
         packet = self.buffers.remove(Direction)
         current_x, current_y = self.name%3 , self.name//3
         Destination = packet.getDestination()
@@ -151,22 +159,23 @@ class Router:
                 NextDirection = "North"
 
 
-        self.CrossBar ( Direction , NextDirection , packet)
+        self.CrossBar ( Direction , NextDirection , packet,clk)
         # Figure out which connection to send to
         # store that connection in Next Connection
         # Use XBar to do that
         
 
-    def RecievePacket(self, Direction, packet):
+    def RecievePacket(self, Direction, packet , clk):
         # the packet is stored in PE buffer
         # call the switch allocator to see which connection to be used
         # use the crossbar to send to the output port in that direction
         # packet recieved at input of next
-        logger.info('Router: ' + str(self.name) + ' Flit received: ' + packet.getflit())
+        logger.info('Router: ' + str(self.name) + ' at clock cycle ' + str(clk.value()) +' Flit received: ' + packet.getflit())
         if (packet.getDestination() == self.name):
             return True
         self.buffers.insert(Direction, packet)
-        self.SwitchAllocator(Direction)
+        self.SwitchAllocator(Direction,clk)
+        
 
     # def DefineDelays(self, sa, xbar, buffer):
     #     self.sa_delay = sa
