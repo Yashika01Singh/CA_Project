@@ -1,0 +1,9 @@
+
+class Port:
+    def __init__(self):
+        self.input_edge = None
+        self.output_edge = None
+
+    def setPort(self, input_port, output_port):
+        self.input_edge = input_port
+        self.output_edge = output_port
