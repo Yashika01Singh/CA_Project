@@ -6,7 +6,7 @@ from send import Send
 
 class Router:
 
-    def __init__(self, X, Y):
+    def __init__(self, X, Y, clock):
 
         self.send = None
         self.neighbour_dict = []
@@ -15,6 +15,7 @@ class Router:
         self.crossbar = CrossBar()
         self.pe = PE
         self.send_flag = 0
+        self.clock = clock
 
         self.north_input_port = None
         self.south_input_port = None

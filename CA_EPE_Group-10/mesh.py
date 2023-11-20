@@ -9,16 +9,16 @@ from port import Port
 # G --- H --- I
 
 class Mesh:
-    def __init__(self):
-        self.router_a = Router(0, 0)
-        self.router_b = Router(1, 0)
-        self.router_c = Router(2, 0)
-        self.router_d = Router(0, 1)
-        self.router_e = Router(1, 1)
-        self.router_f = Router(2, 1)
-        self.router_g = Router(0, 2)
-        self.router_h = Router(1, 2)
-        self.router_i = Router(2, 2)
+    def __init__(self, clock):
+        self.router_a = Router(0, 0, clock)
+        self.router_b = Router(1, 0, clock)
+        self.router_c = Router(2, 0, clock)
+        self.router_d = Router(0, 1, clock)
+        self.router_e = Router(1, 1, clock)
+        self.router_f = Router(2, 1, clock)
+        self.router_g = Router(0, 2, clock)
+        self.router_h = Router(1, 2, clock)
+        self.router_i = Router(2, 2, clock)
 
         self.router_a.neighbour_dict = [{self.router_b: "East"}, {self.router_d: "South"}]
         self.router_a.neighbour_list = [self.router_b, self.router_d]

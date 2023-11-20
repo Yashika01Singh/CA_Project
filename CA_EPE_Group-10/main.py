@@ -11,19 +11,24 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--traffic", help="Traffic File as Input")
 parser.add_argument("-d", "--delay", help="Input Delay File")
 parser.add_argument("-r", "--routing", help="Routing Algorithm you want to use")
+parser.add_argument("-s", "--simulation", help="Simulation Mode you want to use")
 args = parser.parse_args()
+
+logging.basicConfig(filename="Log.log", filemode='w')
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 
 def sig_handler(sig, frame):
+    logger.info("----------------------------------------")
+    logger.info("Simulation has ended.")
+    logger.info("----------------------------------------")
     print('\nEnd of Simulation')
     sys.exit(0)
 
 
 signal.signal(signal.SIGINT, sig_handler)
 
-logging.basicConfig(filename="Log.log", filemode='w')
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
 
 input_data = []
 processed = []
@@ -65,13 +70,14 @@ for line in fileinput.input(files=args.delay):
             new_value.append(value)
     delays.append(new_value)
 
-clk = Clock(delays)
+open('Log.log', 'w').close()
+flag = args.simulation
+clk = Clock(delays, logger, flag)
 clk.startClock()
-Mesh3D = Mesh()
+Mesh3D = Mesh(clk)
 
 # Main simulation loop
 current_input_index = 0
-open('Log.log', 'w').close()
 flit_received = 0  # Flag to track flit reception
 
 print("Start of Simulation")
@@ -87,7 +93,7 @@ while True:
                 if flit_received == 1:
                     log_message = (
                         f'Router: {processed[current_input_index][1]} Received from PE at clock cycle: {clk.cycle_count} '
-                        f'Flit received: {processed[current_input_index][flit_index]}'
+                        f'Flit received: {processed[current_input_index][flit_index]} Received At: Buffer of Router: {processed[current_input_index][1]}'
                     )
                     logger.info(log_message)
                     processed[current_input_index][flit_index] = "0" * 32
