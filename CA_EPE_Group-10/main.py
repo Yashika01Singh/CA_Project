@@ -6,6 +6,7 @@ import sys
 from clock import Clock
 from mesh import Mesh
 from packet import Packet
+from send import Send
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--traffic", help="Traffic File as Input")
@@ -79,7 +80,7 @@ Mesh3D = Mesh(clk)
 # Main simulation loop
 current_input_index = 0
 flit_received = 0  # Flag to track flit reception
-
+print(processed)
 print("Start of Simulation")
 messages = []
 while True:
@@ -97,6 +98,7 @@ while True:
                         f'Flit received: {processed[current_input_index][flit_index]} Received At: Buffer of Router: {processed[current_input_index][1]}'
                     )
                     logger.info(log_message)
+
                     messages.append(['Router: ' + processed[current_input_index][1] + " Received from " + "Buffer" + " at clock cycle: " + str(
                         clk.cycle_count + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[1]) + ' Flit received: ' + processed[current_input_index][flit_index] + ' Received At: SA of Router: ' + processed[current_input_index][1], clk.cycle_count + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[1]])
                     messages.append(['Router: ' + processed[current_input_index][1] + " Received from " + "SA" + " at clock cycle: " + str(
@@ -107,6 +109,7 @@ while True:
                             print("In Loop")
                             logger.info(message[0])
                             messages.remove(message)
+
                     processed[current_input_index][flit_index] = "0" * 32
                     flit_received = 1
                     break
