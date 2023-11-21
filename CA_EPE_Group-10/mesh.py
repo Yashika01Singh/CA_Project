@@ -1,5 +1,6 @@
 from router import Router
 from port import Port
+import fileinput
 
 
 # A --- B --- C
@@ -10,15 +11,33 @@ from port import Port
 
 class Mesh:
     def __init__(self, clock):
-        self.router_a = Router(0, 0, clock)
-        self.router_b = Router(1, 0, clock)
-        self.router_c = Router(2, 0, clock)
-        self.router_d = Router(0, 1, clock)
-        self.router_e = Router(1, 1, clock)
-        self.router_f = Router(2, 1, clock)
-        self.router_g = Router(0, 2, clock)
-        self.router_h = Router(1, 2, clock)
-        self.router_i = Router(2, 2, clock)
+
+        f = open('gaussian_delays.txt', 'r')
+        delays = []
+        for line in f.readlines():
+            A = line.split(' ')
+            print(A)
+            new_value = []
+            for value in A:
+                if '\r' in value or '\n' in value:
+                    value = float(value[0:len(value) - 1])
+                    new_value.append(value)
+                else:
+                    value = float(value)
+                    new_value.append(value)
+            delays.append(new_value)
+
+        print(delays)
+
+        self.router_a = Router(0, 0, clock, delays[0])
+        self.router_b = Router(1, 0, clock, delays[1])
+        self.router_c = Router(2, 0, clock, delays[2])
+        self.router_d = Router(0, 1, clock, delays[3])
+        self.router_e = Router(1, 1, clock, delays[4])
+        self.router_f = Router(2, 1, clock, delays[5])
+        self.router_g = Router(0, 2, clock, delays[6])
+        self.router_h = Router(1, 2, clock, delays[7])
+        self.router_i = Router(2, 2, clock, delays[8])
 
         self.router_a.neighbour_dict = [{self.router_b: "East"}, {self.router_d: "South"}]
         self.router_a.neighbour_list = [self.router_b, self.router_d]

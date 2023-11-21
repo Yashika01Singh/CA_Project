@@ -21,6 +21,8 @@ class Send:
         self.directions = direction
         self.report_file = open('report.txt', 'a')
         self.calculateReceiver(flag)
+        self.messages = []
+        self.time = []
 
     def calculateReceiver(self, flag):
         if self.router.XCoordinate == int(self.buffer[0][26] + self.buffer[0][27],2) and self.router.YCoordinate == int(self.buffer[0][28] + self.buffer[0][29],2):
@@ -67,9 +69,20 @@ class Send:
             route = self.dict[str(self.router_send.XCoordinate) + str(self.router_send.YCoordinate)]
             route_self = self.dict[str(self.router.XCoordinate) + str(self.router.YCoordinate)]
             print(route + " " + route_self)
+            print(self.router_send.cycles)
             logger.info('Router: ' + route + " Received from " + route_self + " at clock cycle: " + str(
                 clock.cycle_count) + ' Flit received: ' + self.buffer[self.count] + ' Received At: Buffer of Router: ' + route)
-            Send.BeginProccessing(route,clock,self.buffer[self.count])
+
+            self.messages.append(['Router: ' + route + " Received from " + "Buffer" + " at clock cycle: " + str(
+                clock.cycle_count + self.router_send.cycles[1]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: SA of Router: ' + route, clock.cycle_count + self.router_send.cycles[1]])
+            self.messages.append(['Router: ' + route + " Received from " + "SA" + " at clock cycle: " + str(
+                clock.cycle_count + self.router_send.cycles[1] + self.router_send.cycles[2]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: XBar of Router: ' + route, clock.cycle_count + self.router_send.cycles[1] + self.router_send.cycles[2]])
+            for message in self.messages:
+                print(message, clock.cycle_count)
+                if message[1] <= clock.cycle_count:
+                    logger.info(message[0])
+                    self.messages.remove(message)
+
             self.report_file.write('Reporter Info: \n Router: ' + route + " Received from " + route_self + " at a delay of: " + str(
                 3*clock.cycle_period) + ' Flit received: ' + self.buffer[self.count] + "\n")
             self.report_file.flush()
@@ -82,4 +95,14 @@ class Send:
             elif self.directions == "East":
                 self.router_send.east_buffer[self.count] = self.buffer[self.count]
         self.count += 1
+
+        if self.count == 3:
+            for message in self.messages:
+                logger.info(message[0])
+
+            if len(self.messages) != 0:
+                for i in range(0,self.messages[-1][1]-clock.cycle_count + 1):
+                    clock.updateCycle()
+
+            self.messages = []
         self.report_file.close()
