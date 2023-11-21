@@ -59,7 +59,7 @@ class Send:
             route_self = self.dict[str(self.router.XCoordinate) + str(self.router.YCoordinate)]
             print(route + " " + route_self)
             logger.info('Router: ' + route + " Received from " + route_self + " at clock cycle: " + str(
-                clock.cycle_count) + ' Flit received: ' + self.buffer[self.count] + 'Received At: Buffer of Router: ' + route)
+                clock.cycle_count) + ' Flit received: ' + self.buffer[self.count] + ' Received At: Buffer of Router: ' + route)
             self.report_file.write('Reporter Info: \n Router: ' + route + " Received from " + route_self + " at a delay of: " + str(
                 3*clock.cycle_period) + ' Flit received: ' + self.buffer[self.count] + "\n")
             self.report_file.flush()
