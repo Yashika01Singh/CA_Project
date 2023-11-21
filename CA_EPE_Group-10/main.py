@@ -34,7 +34,7 @@ input_data = []
 processed = []
 counter = 0
 
-for line in fileinput.input(files=args.traffic):
+for line in fileinput.input(files='traffic.txt'):
     elements = line.strip().split(' ')
     if len(elements) == 1 and elements[0] == '\n':
         continue
@@ -57,7 +57,7 @@ for line in input_data:
     counter += 1
 
 delays = []
-for line in fileinput.input(files=args.delay):
+for line in fileinput.input(files='delays.txt'):
     A = line.split(' ')
     print(A)
     new_value = []
@@ -81,6 +81,7 @@ current_input_index = 0
 flit_received = 0  # Flag to track flit reception
 
 print("Start of Simulation")
+messages = []
 while True:
     if current_input_index < len(processed) and int(processed[current_input_index][0]) <= clk.cycle_count:
         flit_index = 3
@@ -96,16 +97,34 @@ while True:
                         f'Flit received: {processed[current_input_index][flit_index]} Received At: Buffer of Router: {processed[current_input_index][1]}'
                     )
                     logger.info(log_message)
+                    messages.append(['Router: ' + processed[current_input_index][1] + " Received from " + "Buffer" + " at clock cycle: " + str(
+                        clk.cycle_count + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[1]) + ' Flit received: ' + processed[current_input_index][flit_index] + ' Received At: SA of Router: ' + processed[current_input_index][1], clk.cycle_count + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[1]])
+                    messages.append(['Router: ' + processed[current_input_index][1] + " Received from " + "SA" + " at clock cycle: " + str(
+                        clk.cycle_count + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[1] + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[2]) + ' Flit received: ' + processed[current_input_index][flit_index] + ' Received At: XBar of Router: ' + processed[current_input_index][1], clk.cycle_count + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[1] + Mesh3D.sources_dict[processed[current_input_index][1]].cycles[2]])
+                    for message in messages:
+                        print(message, clk.cycle_count)
+                        if message[1] <= clk.cycle_count:
+                            print("In Loop")
+                            logger.info(message[0])
+                            messages.remove(message)
                     processed[current_input_index][flit_index] = "0" * 32
                     flit_received = 1
                     break
                 else:
                     break
             elif processed[current_input_index][max_flit - 1] == "0" * 32:
+                print(messages)
+                for message in messages:
+                    logger.info(message[0])
+
+                if len(messages) != 0:
+                    for i in range(0, messages[-1][1] - clk.cycle_count + 1):
+                        clk.updateCycle()
+
+                messages = []
                 current_input_index += 1
                 break
             flit_index += 1
-
     value = Mesh3D.update(clk, args.routing)
     if value >= 0:
         clk.updateCycle()

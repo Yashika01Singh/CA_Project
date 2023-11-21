@@ -6,7 +6,7 @@ from send import Send
 
 class Router:
 
-    def __init__(self, X, Y, clock):
+    def __init__(self, X, Y, clock, delays):
 
         self.send = None
         self.neighbour_dict = []
@@ -16,6 +16,7 @@ class Router:
         self.pe = PE
         self.send_flag = 0
         self.clock = clock
+        self.delays = delays
 
         self.north_input_port = None
         self.south_input_port = None
@@ -37,7 +38,11 @@ class Router:
         self.neighbour_list = []
         self.ports_list = []
 
+        self.dict = {'00': 'A', '10': 'B', '20': 'C', '01': 'D',
+                     '11': 'E', '21': 'F', '02': 'G', '12': 'H', '22': 'I'}
+        self.cycles = []
         self.makePEPorts()
+        self.process_cycles()
 
     def makePEPorts(self):
         port_per = Port()
@@ -73,6 +78,13 @@ class Router:
                 return self.XCoordinate - 1, self.YCoordinate
             elif Yoffset == 0 and Xoffset > 0:
                 return self.XCoordinate + 1, self.YCoordinate
+
+    def process_cycles(self):
+        for delay in self.delays:
+            if delay <= self.clock.cycle_period:
+                self.cycles.append(1)
+            else:
+                self.cycles.append(2)
 
     def isEmpty_north_buffer(self):
         for i in self.north_buffer:
