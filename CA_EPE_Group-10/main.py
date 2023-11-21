@@ -34,7 +34,7 @@ input_data = []
 processed = []
 counter = 0
 
-for line in fileinput.input(files='traffic.txt'):
+for line in fileinput.input(files=args.traffic):
     elements = line.strip().split(' ')
     if len(elements) == 1 and elements[0] == '\n':
         continue
@@ -57,7 +57,7 @@ for line in input_data:
     counter += 1
 
 delays = []
-for line in fileinput.input(files='delays.txt'):
+for line in fileinput.input(files=args.delays):
     A = line.split(' ')
     print(A)
     new_value = []
