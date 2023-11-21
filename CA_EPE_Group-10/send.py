@@ -52,7 +52,16 @@ class Send:
                 self.directions = "North"
             elif moveY == self.router.YCoordinate + 1:
                 self.directions = "South"
-
+    def BeginProccessing(route,clock,buffer):
+        
+        clock.updateCycle()
+        logger.info('Router: ' + str(route) + " at clock cycle: " + str(
+                clock.cycle_count) + ' Flit received: ' + str(buffer) + ' Received At: SA ')
+        #SA
+        clock.updateCycle()
+        logger.info('Router: ' + str(route) + " at clock cycle: " + str(
+                clock.cycle_count) + ' Flit received: ' + str(buffer) + ' Received At: XBar')
+        
     def send(self, clock):
         self.report_file = open('report.txt', 'a')
         if self.router_send is not None:
@@ -63,6 +72,7 @@ class Send:
             print(self.router_send.cycles)
             logger.info('Router: ' + route + " Received from " + route_self + " at clock cycle: " + str(
                 clock.cycle_count) + ' Flit received: ' + self.buffer[self.count] + ' Received At: Buffer of Router: ' + route)
+
             self.messages.append(['Router: ' + route + " Received from " + "Buffer" + " at clock cycle: " + str(
                 clock.cycle_count + self.router_send.cycles[1]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: SA of Router: ' + route, clock.cycle_count + self.router_send.cycles[1]])
             self.messages.append(['Router: ' + route + " Received from " + "SA" + " at clock cycle: " + str(
@@ -72,6 +82,7 @@ class Send:
                 if message[1] <= clock.cycle_count:
                     logger.info(message[0])
                     self.messages.remove(message)
+
             self.report_file.write('Reporter Info: \n Router: ' + route + " Received from " + route_self + " at a delay of: " + str(
                 3*clock.cycle_period) + ' Flit received: ' + self.buffer[self.count] + "\n")
             self.report_file.flush()
