@@ -45,7 +45,7 @@ Here,
 
 -r - Routing Algorithm (XY or YX)
 
-
+-s - Simulation Mode (PVA or PVS)
 
 
 
