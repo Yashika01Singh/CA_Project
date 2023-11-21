@@ -3,7 +3,11 @@ from crossbar import CrossBar
 from processing_entity import PE
 from send import Send
 
+import logging
 
+logging.basicConfig(filename="Log.log", filemode='a')
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 class Router:
 
     def __init__(self, X, Y, clock):
@@ -36,7 +40,9 @@ class Router:
         self.pe_buffer = ["0" * 32] * 3
         self.neighbour_list = []
         self.ports_list = []
-
+        self.dict = {'00': 'A', '10': 'B', '20': 'C', '01': 'D',
+                     '11': 'E', '21': 'F', '02': 'G', '12': 'H', '22': 'I'}
+        self.lastbuffer = ["0" * 32] * 3
         self.makePEPorts()
 
     def makePEPorts(self):
@@ -125,9 +131,10 @@ class Router:
             for i in range(0, 4):
                 if self.pe_buffer[i] == "0" * 32:
                     return i
-
+    
     def update(self, clock, flag):
         if self.send_flag == 1:
+        
             self.send.send(clock)
             if self.send.count == 3:
                 self.send_flag = 0
@@ -135,6 +142,7 @@ class Router:
             return 1
         elif not self.isEmpty_pe_buffer():
             print("PE")
+            self.lastbuffer = self.pe_buffer
             self.send = Send(self, self.pe_buffer, 'PE', flag)
             self.pe_buffer = ["0" * 32] * 3
             self.send_flag = 1
@@ -142,6 +150,7 @@ class Router:
 
         elif not self.isEmpty_west_buffer():
             print("West")
+            self.lastbuffer=self.west_buffer
             self.send = Send(self, self.west_buffer, 'West', flag)
             self.west_buffer = ["0" * 32] * 3
             self.send_flag = 1
@@ -149,6 +158,7 @@ class Router:
 
         elif not self.isEmpty_north_buffer():
             print("North")
+            self.lastbuffer=self.north_buffer
             self.send = Send(self, self.north_buffer, 'North', flag)
             self.north_buffer = ["0" * 32] * 3
             self.send_flag = 1
@@ -156,6 +166,7 @@ class Router:
 
         elif not self.isEmpty_east_buffer():
             print("East")
+            self.lastbuffer=self.east_buffer
             self.send = Send(self, self.east_buffer, 'East', flag)
             self.east_buffer = ["0" * 32] * 3
             self.send_flag = 1
@@ -163,6 +174,7 @@ class Router:
 
         elif not self.isEmpty_south_buffer():
             print("South")
+            self.lastbuffer =  self.south_buffer
             self.send = Send(self, self.south_buffer, 'South', flag)
             self.south_buffer = ["0" * 32] * 3
             self.send_flag = 1

@@ -6,6 +6,7 @@ import sys
 from clock import Clock
 from mesh import Mesh
 from packet import Packet
+from send import Send
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--traffic", help="Traffic File as Input")
@@ -34,27 +35,20 @@ input_data = []
 processed = []
 counter = 0
 
-for line in fileinput.input(files=args.traffic):
-    elements = line.strip().split(' ')
-    if len(elements) == 1 and elements[0] == '\n':
-        continue
-    for i in range(len(elements)):
-        j = elements[i]
-        if j == '\n' or j == '\r':
-            elements.remove(j)
-        elif '\r' in j or '\n' in j:
-            j = j[0:len(j) - 1]
-            elements[i] = j
-    if len(elements[-1]) == 96:
-        input_data.append(elements)
 
-for line in input_data:
-    inject_cycle, source, dest, payload = line[:4]
-    packet = Packet(payload, source, dest, inject_cycle, counter)
-    curr_input = [inject_cycle, source, dest]
-    curr_input = curr_input + packet.flit()
-    processed.append(curr_input)
-    counter += 1
+def process_line(line):
+    fields = line.split()
+    result = fields[:3]
+    last_field = fields[3]
+    chunks = [last_field[i:i+32] for i in range(0, len(last_field), 32)]
+    result.extend(chunks)
+    return result
+
+with open(args.traffic, 'r') as file:
+        for line in file:
+            # Process each line and append the result to the final list
+            processed.append(process_line(line.strip()))
+
 
 delays = []
 for line in fileinput.input(files=args.delay):
@@ -79,7 +73,7 @@ Mesh3D = Mesh(clk)
 # Main simulation loop
 current_input_index = 0
 flit_received = 0  # Flag to track flit reception
-
+print(processed)
 print("Start of Simulation")
 while True:
     if current_input_index < len(processed) and int(processed[current_input_index][0]) <= clk.cycle_count:
@@ -96,6 +90,8 @@ while True:
                         f'Flit received: {processed[current_input_index][flit_index]} Received At: Buffer of Router: {processed[current_input_index][1]}'
                     )
                     logger.info(log_message)
+                    
+                    Send.BeginProccessing(processed[current_input_index][1],clk,processed[current_input_index][flit_index])
                     processed[current_input_index][flit_index] = "0" * 32
                     flit_received = 1
                     break

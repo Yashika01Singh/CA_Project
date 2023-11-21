@@ -1,0 +1,504 @@
+Reporter Info: 
+ Router: B Received from A at a delay of: 360 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 360 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 360 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 360 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 360 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 360 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 360 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 360 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 360 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 360 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 360 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 360 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 360 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 360 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 360 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 342 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 342 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 342 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 342 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 342 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 342 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 342 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 342 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 342 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 342 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 342 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 342 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 342 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 342 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 342 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 267 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 267 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 267 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 267 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 267 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 267 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 267 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 267 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 267 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 267 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 267 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 267 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 318 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 318 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 318 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 318 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 318 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 318 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 318 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 318 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 318 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 318 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 318 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 318 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 318 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 318 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 318 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 291 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 300 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 300 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 300 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 300 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 300 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 279 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 279 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 279 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 279 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 279 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 279 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 279 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 279 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 279 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 279 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 279 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 279 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 279 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 279 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 279 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 246 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 246 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 246 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 246 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 246 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 246 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 246 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 246 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 246 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 246 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 246 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 246 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 246 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 246 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 246 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 309 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 285 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 285 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 285 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 285 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 285 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 285 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 285 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 285 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 285 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 285 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 285 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 285 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 285 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 285 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 285 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 243 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 243 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 243 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 243 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 243 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 243 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 243 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 243 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 243 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 243 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 243 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 243 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 243 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 243 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 243 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 345 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 345 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 345 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 345 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 345 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 345 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 345 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 345 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 345 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 345 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 345 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 345 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 345 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 345 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 345 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 309 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 309 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 309 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 309 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 291 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 291 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 291 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 291 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 282 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 282 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 282 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 282 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 282 Flit received: 10101010110101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 282 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 282 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 282 Flit received: 10101010110101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 282 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 282 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 282 Flit received: 10101010110101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 282 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 282 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 282 Flit received: 10101010110101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 282 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from A at a delay of: 324 Flit received: 00000000000000000000000000010000
+Reporter Info: 
+ Router: B Received from A at a delay of: 324 Flit received: 10101010010101011010101010101001
+Reporter Info: 
+ Router: B Received from A at a delay of: 324 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: B Received from C at a delay of: 324 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: B Received from C at a delay of: 324 Flit received: 10111110010101011010101010101001
+Reporter Info: 
+ Router: B Received from C at a delay of: 324 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: A Received from B at a delay of: 324 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: A Received from B at a delay of: 324 Flit received: 10111110010101011010101010101001
+Reporter Info: 
+ Router: A Received from B at a delay of: 324 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: D Received from A at a delay of: 324 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: D Received from A at a delay of: 324 Flit received: 10111110010101011010101010101001
+Reporter Info: 
+ Router: D Received from A at a delay of: 324 Flit received: 10101010010101010110101101010111
+Reporter Info: 
+ Router: G Received from D at a delay of: 324 Flit received: 00000000000100000000000000001000
+Reporter Info: 
+ Router: G Received from D at a delay of: 324 Flit received: 10111110010101011010101010101001
+Reporter Info: 
+ Router: G Received from D at a delay of: 324 Flit received: 10101010010101010110101101010111
