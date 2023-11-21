@@ -8,7 +8,8 @@ def read_for_link_graph(file_path):
              'G-D': 0, 'D-A': 0, 'B-E': 0, 'E-F': 0, 'E-H': 0, 'F-G': 0}
 
     with open(file_path, 'r') as file:
-        for line in file:
+        lines = file.readlines()
+        for line in lines:
             if 'Router' in line and 'Received' in line and 'from' in line:
                 parts = line.split()
                 sender = parts[1]
@@ -25,7 +26,8 @@ def read_for_latency_graph(file_path):
     pkt_latency = {}
 
     with open(file_path, 'r') as file:
-        for line in file:
+        lines = file.readlines()
+        for line in lines:
             if 'Router' in line and 'Received' in line and 'from' in line:
                 parts = line.split()
                 flit = parts[11]
@@ -34,7 +36,8 @@ def read_for_latency_graph(file_path):
                     pkt_latency[flit] = [-1,0]
 
     with open(file_path, 'r') as file:
-        for line in file:
+        lines = file.readlines()
+        for line in lines:
             if 'Router' in line and 'Received' in line and 'from' in line:
                 parts = line.split()
                 flit = parts[11]
