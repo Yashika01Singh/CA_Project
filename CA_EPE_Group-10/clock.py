@@ -8,7 +8,7 @@ class Clock:
         self.cycle_value = 0
         self.cycle_period = self.calculate_period(delays, flag)
         self.time = 0
-        self.logger.info("Clock is starting.\n")
+        
 
     def startClock(self):
         self.cycle_value = 1
@@ -20,10 +20,7 @@ class Clock:
         self.cycle_count += 1
         self.time += self.cycle_period
 
-    def stopClock(self):
-        self.cycle_count = 0
-        self.cycle_value = 0
-
+  
     def calculate_period(self, delays, flag):
         file = open('gaussian_delays.txt', 'w')
         if flag == 'PVS':

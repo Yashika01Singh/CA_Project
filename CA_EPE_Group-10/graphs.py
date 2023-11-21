@@ -70,7 +70,7 @@ def plot_latency(data):
     plt.show()
 
 def main():
-    log_file_path = 'log.txt'
+    log_file_path = 'Log.log'
 
     data_link = read_for_link_graph(log_file_path)
     data_latency = read_for_latency_graph(log_file_path)

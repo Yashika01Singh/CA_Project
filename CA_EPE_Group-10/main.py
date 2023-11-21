@@ -5,8 +5,7 @@ import signal
 import sys
 from clock import Clock
 from mesh import Mesh
-from packet import Packet
-from send import Send
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--traffic", help="Traffic File as Input")
@@ -21,9 +20,7 @@ logger.setLevel(logging.DEBUG)
 
 
 def sig_handler(sig, frame):
-    logger.info("----------------------------------------")
     logger.info("Simulation has ended.")
-    logger.info("----------------------------------------")
     print('\nEnd of Simulation')
     sys.exit(0)
 
@@ -35,30 +32,21 @@ input_data = []
 processed = []
 counter = 0
 
-for line in fileinput.input(files=args.traffic):
-    elements = line.strip().split(' ')
-    if len(elements) == 1 and elements[0] == '\n':
-        continue
-    for i in range(len(elements)):
-        j = elements[i]
-        if j == '\n' or j == '\r':
-            elements.remove(j)
-        elif '\r' in j or '\n' in j:
-            j = j[0:len(j) - 1]
-            elements[i] = j
-    if len(elements[-1]) == 96:
-        input_data.append(elements)
+def process_line(line):
+    fields = line.split()
+    result = fields[:3]
+    last_field = fields[3]
+    chunks = [last_field[i:i+32] for i in range(0, len(last_field), 32)]
+    result.extend(chunks)
+    return result
 
-for line in input_data:
-    inject_cycle, source, dest, payload = line[:4]
-    packet = Packet(payload, source, dest, inject_cycle, counter)
-    curr_input = [inject_cycle, source, dest]
-    curr_input = curr_input + packet.flit()
-    processed.append(curr_input)
-    counter += 1
+with open(args.traffic, 'r') as file:
+        for line in file:
+            # Process each line and append the result to the final list
+            processed.append(process_line(line.strip()))
 
 delays = []
-for line in fileinput.input(files=args.delays):
+for line in fileinput.input(files=args.delay):
     A = line.split(' ')
     print(A)
     new_value = []
@@ -96,7 +84,7 @@ while True:
                     log_message = (
                         f'Router: {processed[current_input_index][1]} Received from PE at clock cycle: {clk.cycle_count} '
                         f'Flit received: {processed[current_input_index][flit_index]} Received At: Buffer of Router: {processed[current_input_index][1]}'
-                    )
+                    )#Logging the messages
                     logger.info(log_message)
 
                     messages.append(['Router: ' + processed[current_input_index][1] + " Received from " + "Buffer" + " at clock cycle: " + str(
