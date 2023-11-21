@@ -15,8 +15,11 @@ def read_for_link_graph(file_path):
                 sender = parts[1]
                 receiver = parts[4]
                 link_key = f'{sender}-{receiver}'
+                link_key_1 = f'{receiver}-{sender}'
                 if link_key in links:
                     links[link_key] += 1
+                if link_key_1 in links:
+                    links[link_key_1] += 1
 
     return links
 
