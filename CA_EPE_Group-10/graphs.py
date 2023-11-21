@@ -21,7 +21,30 @@ def read_for_link_graph(file_path):
 
 
 def read_for_latency_graph(file_path):
-    pass
+
+    pkt_latency = {}
+
+    with open(file_path, 'r') as file:
+        for line in file:
+            if 'Router' in line and 'Received' in line:
+                parts = line.split()
+                flit = parts[11]
+                if (flit[-2:] == '01'):
+                  if flit not in pkt_latency:
+                    pkt_latency[flit] = [-1,0]
+
+    with open(file_path, 'r') as file:
+        for line in file:
+            if 'Router' in line and 'Received' in line:
+                parts = line.split()
+                flit = parts[11]
+                if (flit[-2:] == '01'):
+                  if (pkt_latency[flit][0] == -1):
+                    pkt_latency[flit][0] = parts[8]
+                  else:
+                    pkt_latency[flit][1] = parts[8]
+                
+    return pkt_latency
 
 def plot_flits_sent(data):
     links = list(data.keys())
@@ -34,10 +57,11 @@ def plot_flits_sent(data):
     plt.show()
 
 def plot_latency(data):
-    packets_sent = [entry[2] for entry in data]
+    packets_sent = list(data.keys())
+    cycles_taken = [int(array[1]) - int(array[0]) for array in data.values()]
 
-    plt.plot(packets_sent, [entry[2] for entry in data], marker='o')
-    plt.title(f'Packet Transfer Latency')
+    plt.bar(packets_sent, cycles_taken)
+    plt.title('Packet Transfer Latency')
     plt.xlabel('Packets Sent')
     plt.ylabel('Latency (Clock Cycles)')
     plt.show()
