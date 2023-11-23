@@ -8,7 +8,7 @@ class Clock:
         self.cycle_value = 0
         self.cycle_period = self.calculate_period(delays, flag)
         self.time = 0
-        
+        self.flag = flag
 
     def startClock(self):
         self.cycle_value = 1

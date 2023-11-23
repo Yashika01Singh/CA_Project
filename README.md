@@ -36,7 +36,7 @@ Step-4: After activating the environment, navigate to the folder containing the 
 
 Step-5: Run the following script to get the output for Log file in 'Log.log'. You might not be seeing the report file. This will be generated after you press Ctrl+C on your terminal to flush the written item to the file.
 
-```python3 main.py -t traffic.txt -r XY -d delays.txt```
+```python3 main.py -t traffic.txt -r XY -d delays.txt -s PVA```
 
 Here,
 -t - Flag for input traffic file

@@ -5,6 +5,7 @@ import signal
 import sys
 from clock import Clock
 from mesh import Mesh
+import report
 
 
 parser = argparse.ArgumentParser()
@@ -18,10 +19,29 @@ logging.basicConfig(filename="Log.log", filemode='w')
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
+delays = []
+for line in fileinput.input(files=args.delay):
+    A = line.split(' ')
+    print(A)
+    new_value = []
+    for value in A:
+        if '\r' in value or '\n' in value:
+            value = float(value[0:len(value) - 1])
+            new_value.append(value)
+        else:
+            value = float(value)
+            new_value.append(value)
+    delays.append(new_value)
+
+flag = args.simulation
+clk = Clock(delays, logger, flag)
+
 
 def sig_handler(sig, frame):
     logger.info("Simulation has ended.")
     print('\nEnd of Simulation')
+    f = open('report.txt','w')
+    report.generate_report_file(f,clk)
     sys.exit(0)
 
 
@@ -45,23 +65,8 @@ with open(args.traffic, 'r') as file:
             # Process each line and append the result to the final list
             processed.append(process_line(line.strip()))
 
-delays = []
-for line in fileinput.input(files=args.delay):
-    A = line.split(' ')
-    print(A)
-    new_value = []
-    for value in A:
-        if '\r' in value or '\n' in value:
-            value = float(value[0:len(value) - 1])
-            new_value.append(value)
-        else:
-            value = float(value)
-            new_value.append(value)
-    delays.append(new_value)
 
 open('Log.log', 'w').close()
-flag = args.simulation
-clk = Clock(delays, logger, flag)
 clk.startClock()
 Mesh3D = Mesh(clk)
 

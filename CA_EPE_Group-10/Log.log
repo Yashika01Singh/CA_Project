@@ -1,101 +1,64 @@
-INFO:root:Delay for Buffer => 0.8619480411725674
-INFO:root:Delay for Switch Allocator (SA) => 109.0514929138601
-INFO:root:Delay for X-Bar => 0.685176420482629
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 1.0068793663514768
-INFO:root:Delay for Switch Allocator (SA) => 112.42158587370916
-INFO:root:Delay for X-Bar => 0.6174637750450402
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 1.0023389946943226
-INFO:root:Delay for Switch Allocator (SA) => 105.14596733405709
-INFO:root:Delay for X-Bar => 0.6047637691603779
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 0.9676455144543172
-INFO:root:Delay for Switch Allocator (SA) => 104.38660774737372
-INFO:root:Delay for X-Bar => 0.538708464055948
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 0.9183432291269186
-INFO:root:Delay for Switch Allocator (SA) => 110.61888918699508
-INFO:root:Delay for X-Bar => 0.7594705857831807
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 0.8907532072694687
-INFO:root:Delay for Switch Allocator (SA) => 102.9328458180709
-INFO:root:Delay for X-Bar => 0.6798825612222851
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 0.8287577344499143
-INFO:root:Delay for Switch Allocator (SA) => 85.09739119894442
-INFO:root:Delay for X-Bar => 0.6524954575111788
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 0.8004945893964486
-INFO:root:Delay for Switch Allocator (SA) => 85.60141856832803
-INFO:root:Delay for X-Bar => 0.5290943781079213
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Delay for Buffer => 0.8852658637123428
-INFO:root:Delay for Switch Allocator (SA) => 97.97716054764562
-INFO:root:Delay for X-Bar => 0.6948594329002695
-INFO:root:Delay is in the limit (mean - 3*sigma, mean + 3*sigma) => True
-INFO:root:Clock Period is: 100
 INFO:root:Router: A Received from PE at clock cycle: 2 Flit received: 00000000000000000000000000010000 Received At: Buffer of Router: A
 INFO:root:Router: A Received from PE at clock cycle: 3 Flit received: 10101010010101011010101010101001 Received At: Buffer of Router: A
-INFO:root:Router: A Received from PE at clock cycle: 4 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: A
-INFO:root:Router: A Received from Buffer at clock cycle: 4 Flit received: 00000000000000000000000000010000 Received At: SA of Router: A
-INFO:root:Router: A Received from SA at clock cycle: 5 Flit received: 00000000000000000000000000010000 Received At: XBar of Router: A
-INFO:root:Router: A Received from Buffer at clock cycle: 5 Flit received: 10101010010101011010101010101001 Received At: SA of Router: A
-INFO:root:Router: A Received from SA at clock cycle: 6 Flit received: 10101010010101011010101010101001 Received At: XBar of Router: A
-INFO:root:Router: A Received from Buffer at clock cycle: 6 Flit received: 10101010010101010110101101010111 Received At: SA of Router: A
-INFO:root:Router: A Received from SA at clock cycle: 7 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: A
-INFO:root:Router: B Received from A at clock cycle: 8 Flit received: 00000000000000000000000000010000 Received At: Buffer of Router: B
-INFO:root:Router: B Received from A at clock cycle: 9 Flit received: 10101010010101011010101010101001 Received At: Buffer of Router: B
-INFO:root:Router: B Received from A at clock cycle: 10 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: B
-INFO:root:Router: B Received from Buffer at clock cycle: 10 Flit received: 00000000000000000000000000010000 Received At: SA of Router: B
-INFO:root:Router: B Received from SA at clock cycle: 11 Flit received: 00000000000000000000000000010000 Received At: XBar of Router: B
-INFO:root:Router: B Received from Buffer at clock cycle: 11 Flit received: 10101010010101011010101010101001 Received At: SA of Router: B
-INFO:root:Router: B Received from SA at clock cycle: 12 Flit received: 10101010010101011010101010101001 Received At: XBar of Router: B
-INFO:root:Router: B Received from Buffer at clock cycle: 12 Flit received: 10101010010101010110101101010111 Received At: SA of Router: B
-INFO:root:Router: B Received from SA at clock cycle: 13 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: B
+INFO:root:Router: A Received from Buffer at clock cycle: 3 Flit received: 00000000000000000000000000010000 Received At: SA of Router: A
+INFO:root:Router: A Received from PE at clock cycle: 4 Flit received: 10101010010101010110101101010110 Received At: Buffer of Router: A
+INFO:root:Router: A Received from SA at clock cycle: 4 Flit received: 00000000000000000000000000010000 Received At: XBar of Router: A
+INFO:root:Router: A Received from Buffer at clock cycle: 4 Flit received: 10101010010101011010101010101001 Received At: SA of Router: A
+INFO:root:Router: A Received from SA at clock cycle: 5 Flit received: 10101010010101011010101010101001 Received At: XBar of Router: A
+INFO:root:Router: A Received from Buffer at clock cycle: 5 Flit received: 10101010010101010110101101010110 Received At: SA of Router: A
+INFO:root:Router: A Received from SA at clock cycle: 6 Flit received: 10101010010101010110101101010110 Received At: XBar of Router: A
+INFO:root:Router: B Received from A at clock cycle: 7 Flit received: 00000000000000000000000000010000 Received At: Buffer of Router: B
+INFO:root:Router: B Received from A at clock cycle: 8 Flit received: 10101010010101011010101010101001 Received At: Buffer of Router: B
+INFO:root:Router: B Received from Buffer at clock cycle: 8 Flit received: 00000000000000000000000000010000 Received At: SA of Router: B
+INFO:root:Router: B Received from A at clock cycle: 9 Flit received: 10101010010101010110101101010110 Received At: Buffer of Router: B
+INFO:root:Router: B Received from SA at clock cycle: 9 Flit received: 00000000000000000000000000010000 Received At: XBar of Router: B
+INFO:root:Router: B Received from Buffer at clock cycle: 9 Flit received: 10101010010101011010101010101001 Received At: SA of Router: B
+INFO:root:Router: B Received from SA at clock cycle: 10 Flit received: 10101010010101011010101010101001 Received At: XBar of Router: B
+INFO:root:Router: B Received from Buffer at clock cycle: 10 Flit received: 10101010010101010110101101010110 Received At: SA of Router: B
+INFO:root:Router: B Received from SA at clock cycle: 11 Flit received: 10101010010101010110101101010110 Received At: XBar of Router: B
 INFO:root:Router: C Received from PE at clock cycle: 20 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: C
-INFO:root:Router: C Received from PE at clock cycle: 21 Flit received: 10111110010101011010101010101001 Received At: Buffer of Router: C
-INFO:root:Router: C Received from PE at clock cycle: 22 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: C
-INFO:root:Router: C Received from Buffer at clock cycle: 22 Flit received: 00000000000100000000000000001000 Received At: SA of Router: C
-INFO:root:Router: C Received from SA at clock cycle: 23 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: C
-INFO:root:Router: C Received from Buffer at clock cycle: 23 Flit received: 10111110010101011010101010101001 Received At: SA of Router: C
-INFO:root:Router: C Received from SA at clock cycle: 24 Flit received: 10111110010101011010101010101001 Received At: XBar of Router: C
-INFO:root:Router: C Received from Buffer at clock cycle: 24 Flit received: 10101010010101010110101101010111 Received At: SA of Router: C
-INFO:root:Router: C Received from SA at clock cycle: 25 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: C
-INFO:root:Router: B Received from C at clock cycle: 26 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: B
-INFO:root:Router: B Received from C at clock cycle: 27 Flit received: 10111110010101011010101010101001 Received At: Buffer of Router: B
-INFO:root:Router: B Received from C at clock cycle: 28 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: B
-INFO:root:Router: B Received from Buffer at clock cycle: 28 Flit received: 00000000000100000000000000001000 Received At: SA of Router: B
-INFO:root:Router: B Received from SA at clock cycle: 29 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: B
-INFO:root:Router: B Received from Buffer at clock cycle: 29 Flit received: 10111110010101011010101010101001 Received At: SA of Router: B
-INFO:root:Router: B Received from SA at clock cycle: 30 Flit received: 10111110010101011010101010101001 Received At: XBar of Router: B
-INFO:root:Router: B Received from Buffer at clock cycle: 30 Flit received: 10101010010101010110101101010111 Received At: SA of Router: B
-INFO:root:Router: B Received from SA at clock cycle: 31 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: B
-INFO:root:Router: A Received from B at clock cycle: 33 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: A
-INFO:root:Router: A Received from B at clock cycle: 34 Flit received: 10111110010101011010101010101001 Received At: Buffer of Router: A
-INFO:root:Router: A Received from B at clock cycle: 35 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: A
-INFO:root:Router: A Received from Buffer at clock cycle: 35 Flit received: 00000000000100000000000000001000 Received At: SA of Router: A
-INFO:root:Router: A Received from SA at clock cycle: 36 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: A
-INFO:root:Router: A Received from Buffer at clock cycle: 36 Flit received: 10111110010101011010101010101001 Received At: SA of Router: A
-INFO:root:Router: A Received from SA at clock cycle: 37 Flit received: 10111110010101011010101010101001 Received At: XBar of Router: A
-INFO:root:Router: A Received from Buffer at clock cycle: 37 Flit received: 10101010010101010110101101010111 Received At: SA of Router: A
-INFO:root:Router: A Received from SA at clock cycle: 38 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: A
-INFO:root:Router: D Received from A at clock cycle: 40 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: D
-INFO:root:Router: D Received from A at clock cycle: 41 Flit received: 10111110010101011010101010101001 Received At: Buffer of Router: D
-INFO:root:Router: D Received from A at clock cycle: 42 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: D
-INFO:root:Router: D Received from Buffer at clock cycle: 42 Flit received: 00000000000100000000000000001000 Received At: SA of Router: D
-INFO:root:Router: D Received from SA at clock cycle: 43 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: D
-INFO:root:Router: D Received from Buffer at clock cycle: 43 Flit received: 10111110010101011010101010101001 Received At: SA of Router: D
-INFO:root:Router: D Received from SA at clock cycle: 44 Flit received: 10111110010101011010101010101001 Received At: XBar of Router: D
-INFO:root:Router: D Received from Buffer at clock cycle: 44 Flit received: 10101010010101010110101101010111 Received At: SA of Router: D
-INFO:root:Router: D Received from SA at clock cycle: 45 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: D
-INFO:root:Router: G Received from D at clock cycle: 47 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: G
-INFO:root:Router: G Received from D at clock cycle: 48 Flit received: 10111110010101011010101010101001 Received At: Buffer of Router: G
-INFO:root:Router: G Received from Buffer at clock cycle: 48 Flit received: 00000000000100000000000000001000 Received At: SA of Router: G
-INFO:root:Router: G Received from D at clock cycle: 49 Flit received: 10101010010101010110101101010111 Received At: Buffer of Router: G
-INFO:root:Router: G Received from SA at clock cycle: 49 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: G
-INFO:root:Router: G Received from Buffer at clock cycle: 49 Flit received: 10111110010101011010101010101001 Received At: SA of Router: G
-INFO:root:Router: G Received from SA at clock cycle: 50 Flit received: 10111110010101011010101010101001 Received At: XBar of Router: G
-INFO:root:Router: G Received from Buffer at clock cycle: 50 Flit received: 10101010010101010110101101010111 Received At: SA of Router: G
-INFO:root:Router: G Received from SA at clock cycle: 51 Flit received: 10101010010101010110101101010111 Received At: XBar of Router: G
+INFO:root:Router: C Received from PE at clock cycle: 21 Flit received: 10010010010010010010010010010001 Received At: Buffer of Router: C
+INFO:root:Router: C Received from Buffer at clock cycle: 21 Flit received: 00000000000100000000000000001000 Received At: SA of Router: C
+INFO:root:Router: C Received from PE at clock cycle: 22 Flit received: 00100100100100100100100100100110 Received At: Buffer of Router: C
+INFO:root:Router: C Received from SA at clock cycle: 22 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: C
+INFO:root:Router: C Received from Buffer at clock cycle: 22 Flit received: 10010010010010010010010010010001 Received At: SA of Router: C
+INFO:root:Router: C Received from SA at clock cycle: 23 Flit received: 10010010010010010010010010010001 Received At: XBar of Router: C
+INFO:root:Router: C Received from Buffer at clock cycle: 23 Flit received: 00100100100100100100100100100110 Received At: SA of Router: C
+INFO:root:Router: C Received from SA at clock cycle: 24 Flit received: 00100100100100100100100100100110 Received At: XBar of Router: C
+INFO:root:Router: B Received from C at clock cycle: 25 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: B
+INFO:root:Router: B Received from C at clock cycle: 26 Flit received: 10010010010010010010010010010001 Received At: Buffer of Router: B
+INFO:root:Router: B Received from Buffer at clock cycle: 26 Flit received: 00000000000100000000000000001000 Received At: SA of Router: B
+INFO:root:Router: B Received from C at clock cycle: 27 Flit received: 00100100100100100100100100100110 Received At: Buffer of Router: B
+INFO:root:Router: B Received from SA at clock cycle: 27 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: B
+INFO:root:Router: B Received from Buffer at clock cycle: 27 Flit received: 10010010010010010010010010010001 Received At: SA of Router: B
+INFO:root:Router: B Received from SA at clock cycle: 28 Flit received: 10010010010010010010010010010001 Received At: XBar of Router: B
+INFO:root:Router: B Received from Buffer at clock cycle: 28 Flit received: 00100100100100100100100100100110 Received At: SA of Router: B
+INFO:root:Router: B Received from SA at clock cycle: 29 Flit received: 00100100100100100100100100100110 Received At: XBar of Router: B
+INFO:root:Router: A Received from B at clock cycle: 31 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: A
+INFO:root:Router: A Received from B at clock cycle: 32 Flit received: 10010010010010010010010010010001 Received At: Buffer of Router: A
+INFO:root:Router: A Received from Buffer at clock cycle: 32 Flit received: 00000000000100000000000000001000 Received At: SA of Router: A
+INFO:root:Router: A Received from B at clock cycle: 33 Flit received: 00100100100100100100100100100110 Received At: Buffer of Router: A
+INFO:root:Router: A Received from SA at clock cycle: 33 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: A
+INFO:root:Router: A Received from Buffer at clock cycle: 33 Flit received: 10010010010010010010010010010001 Received At: SA of Router: A
+INFO:root:Router: A Received from SA at clock cycle: 34 Flit received: 10010010010010010010010010010001 Received At: XBar of Router: A
+INFO:root:Router: A Received from Buffer at clock cycle: 34 Flit received: 00100100100100100100100100100110 Received At: SA of Router: A
+INFO:root:Router: A Received from SA at clock cycle: 35 Flit received: 00100100100100100100100100100110 Received At: XBar of Router: A
+INFO:root:Router: D Received from A at clock cycle: 37 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: D
+INFO:root:Router: D Received from A at clock cycle: 38 Flit received: 10010010010010010010010010010001 Received At: Buffer of Router: D
+INFO:root:Router: D Received from Buffer at clock cycle: 38 Flit received: 00000000000100000000000000001000 Received At: SA of Router: D
+INFO:root:Router: D Received from A at clock cycle: 39 Flit received: 00100100100100100100100100100110 Received At: Buffer of Router: D
+INFO:root:Router: D Received from SA at clock cycle: 39 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: D
+INFO:root:Router: D Received from Buffer at clock cycle: 39 Flit received: 10010010010010010010010010010001 Received At: SA of Router: D
+INFO:root:Router: D Received from SA at clock cycle: 40 Flit received: 10010010010010010010010010010001 Received At: XBar of Router: D
+INFO:root:Router: D Received from Buffer at clock cycle: 40 Flit received: 00100100100100100100100100100110 Received At: SA of Router: D
+INFO:root:Router: D Received from SA at clock cycle: 41 Flit received: 00100100100100100100100100100110 Received At: XBar of Router: D
+INFO:root:Router: G Received from D at clock cycle: 43 Flit received: 00000000000100000000000000001000 Received At: Buffer of Router: G
+INFO:root:Router: G Received from D at clock cycle: 44 Flit received: 10010010010010010010010010010001 Received At: Buffer of Router: G
+INFO:root:Router: G Received from Buffer at clock cycle: 44 Flit received: 00000000000100000000000000001000 Received At: SA of Router: G
+INFO:root:Router: G Received from D at clock cycle: 45 Flit received: 00100100100100100100100100100110 Received At: Buffer of Router: G
+INFO:root:Router: G Received from SA at clock cycle: 45 Flit received: 00000000000100000000000000001000 Received At: XBar of Router: G
+INFO:root:Router: G Received from Buffer at clock cycle: 45 Flit received: 10010010010010010010010010010001 Received At: SA of Router: G
+INFO:root:Router: G Received from SA at clock cycle: 46 Flit received: 10010010010010010010010010010001 Received At: XBar of Router: G
+INFO:root:Router: G Received from Buffer at clock cycle: 46 Flit received: 00100100100100100100100100100110 Received At: SA of Router: G
+INFO:root:Router: G Received from SA at clock cycle: 47 Flit received: 00100100100100100100100100100110 Received At: XBar of Router: G
 INFO:root:Simulation has ended.
