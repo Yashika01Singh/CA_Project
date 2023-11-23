@@ -83,8 +83,6 @@ class Send:
                     logger.info(message[0])
                     self.messages.remove(message)
 
-            self.report_file.write('Reporter Info: \n Router: ' + route + " Received from " + route_self + " at a delay of: " + str(
-                3*clock.cycle_period) + ' Flit received: ' + self.buffer[self.count] + "\n")
             self.report_file.flush()
             if self.directions == "North":
                 self.router_send.north_buffer[self.count] = self.buffer[self.count]
