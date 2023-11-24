@@ -2,7 +2,8 @@ import numpy as np
 import fileinput
 
 routers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8}
-
+sources = {"0000": "A", "0100": "B", "1000": "C", "0001": "D",
+                "0101": "E", "1001": "F", "0010": "G", "0110": "H", "1010": "I"}
 
 def add_to_report(report,flits, clock):
     delays = []
@@ -44,8 +45,11 @@ def add_to_report(report,flits, clock):
                 buff_cycle = 2
             sa_delay = delays[routers[connection[0]]][1]
             messages.append([f'\t Flit {flit[0]} : Received at t = {flit[1] * period} Sender: I/P Port Receiver: Buffer\n', flit[1] * period ])
-            messages.append([f'\t Flit {flit[0]} : Received at t = {flit[1] * period + buff_delay} Sender: Buffer Receiver: SA\n', flit[1] * period + buff_delay])
-            messages.append([f'\t Flit {flit[0]} : Received at t = {(flit[1] + buff_cycle) * period + sa_delay} Sender: SA Receiver: XBar\n', (flit[1] + buff_cycle) * period + sa_delay])
+            if sources[flits[connection][0][0][26:30]] == connection[0]:
+                pass
+            else:
+                messages.append([f'\t Flit {flit[0]} : Received at t = {flit[1] * period + buff_delay} Sender: Buffer Receiver: SA\n', flit[1] * period + buff_delay])
+                messages.append([f'\t Flit {flit[0]} : Received at t = {(flit[1] + buff_cycle) * period + sa_delay} Sender: SA Receiver: XBar\n', (flit[1] + buff_cycle) * period + sa_delay])
         messages.sort(key=lambda x: x[1])
         for m in messages:
             report.write(m[0])

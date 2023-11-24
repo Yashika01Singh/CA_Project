@@ -13,6 +13,8 @@ class Send:
         self.router_send = None
         self.dict = {'00': 'A', '10': 'B', '20': 'C', '01': 'D',
                      '11': 'E', '21': 'F', '02': 'G', '12': 'H', '22': 'I'}
+        self.sources = {"0000": "A", "0100": "B","1000": "C", "0001": "D",
+                        "0101": "E", "1001": "F", "0010": "G", "0110": "H", "1010": "I"}
         self.direction_buffer_dict = {"East": self.router.east_buffer,
                                       "West": self.router.west_buffer,
                                       "North": self.router.north_buffer,
@@ -72,11 +74,13 @@ class Send:
             print(self.router_send.cycles)
             logger.info('Router: ' + route + " Received from " + route_self + " at clock cycle: " + str(
                 clock.cycle_count) + ' Flit received: ' + self.buffer[self.count] + ' Received At: Buffer of Router: ' + route)
-
-            self.messages.append(['Router: ' + route + " Received from " + "Buffer" + " at clock cycle: " + str(
-                clock.cycle_count + self.router_send.cycles[1]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: SA of Router: ' + route, clock.cycle_count + self.router_send.cycles[1]])
-            self.messages.append(['Router: ' + route + " Received from " + "SA" + " at clock cycle: " + str(
-                clock.cycle_count + self.router_send.cycles[1] + self.router_send.cycles[2]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: XBar of Router: ' + route, clock.cycle_count + self.router_send.cycles[1] + self.router_send.cycles[2]])
+            if self.sources[self.buffer[0][26:30]] == route:
+                pass
+            else:
+                self.messages.append(['Router: ' + route + " Received from " + "Buffer" + " at clock cycle: " + str(
+                    clock.cycle_count + self.router_send.cycles[1]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: SA of Router: ' + route, clock.cycle_count + self.router_send.cycles[1]])
+                self.messages.append(['Router: ' + route + " Received from " + "SA" + " at clock cycle: " + str(
+                    clock.cycle_count + self.router_send.cycles[1] + self.router_send.cycles[2]) + ' Flit received: ' + self.buffer[self.count] + ' Received At: XBar of Router: ' + route, clock.cycle_count + self.router_send.cycles[1] + self.router_send.cycles[2]])
             for message in self.messages:
                 print(message, clock.cycle_count)
                 if message[1] <= clock.cycle_count:
@@ -99,7 +103,7 @@ class Send:
                 logger.info(message[0])
 
             if len(self.messages) != 0:
-                for i in range(0,self.messages[-1][1]-clock.cycle_count + 1):
+                for i in range(0,self.messages[-1][1]-clock.cycle_count):
                     clock.updateCycle()
 
             self.messages = []

@@ -33,6 +33,7 @@ for line in fileinput.input(files=args.delay):
             new_value.append(value)
     delays.append(new_value)
 
+open('Log.log', 'w').close()
 flag = args.simulation
 clk = Clock(delays, logger, flag)
 
@@ -66,7 +67,6 @@ with open(args.traffic, 'r') as file:
             processed.append(process_line(line.strip()))
 
 
-open('Log.log', 'w').close()
 clk.startClock()
 Mesh3D = Mesh(clk)
 
